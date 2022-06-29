@@ -8,7 +8,7 @@ import {Login, Register} from '../containers/Auth'
 
 class Auth extends Component {
     // 페이지에 진입 할 때 헤더를 비활성화
-    componentWillMount() {
+    componentDidMount() {
         this.props.BaseActions.setHeaderVisibility(false);
     }
 

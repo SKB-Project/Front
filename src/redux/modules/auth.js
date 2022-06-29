@@ -20,8 +20,9 @@ export const setError = createAction(SET_ERROR);
 const initialState = Map({
     register: Map({
         form: Map({
-            username: '',
+            name: '',
             email: '',
+            userid: '',
             password: '',
             passwordConfirm: ''
         }),

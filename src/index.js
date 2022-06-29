@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
 import Root from './Root';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/configureStore';
-import { AppContainer } from 'react-hot-loader';
+//import { AppContainer } from 'react-hot-loader';
 
 const store = configureStore();
 

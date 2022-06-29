@@ -14,6 +14,9 @@ class Register extends Component {
         });
     }
     validate = {
+        name: () => {
+            return true;
+        },
         email: (value) => {
             if(!isEmail(value)) {
                 this.setError('잘못된 이메일 형식 입니다.');
@@ -21,7 +24,7 @@ class Register extends Component {
             }
             return true;
         },
-        username: (value) => {
+        userid: (value) => {
             if(!isAlphanumeric(value) || !isLength(value, { min:4, max: 15 })) {
                 this.setError('아이디는 4~15 글자의 알파벳 혹은 숫자로 이뤄져야 합니다.');
                 return false;
@@ -50,6 +53,7 @@ class Register extends Component {
         const { AuthActions } = this.props;
         AuthActions.initializeForm('register')
     }
+
     handleChange = (e) => {
         const { AuthActions } = this.props;
         const { name, value } = e.target;
@@ -62,24 +66,27 @@ class Register extends Component {
         const validation = this.validate[name](value);
         if(name.indexOf('password') > -1 || !validation) return;
     }
+
     handleLocalRegister = async () => {
         const { form, AuthActions, error, history } = this.props;
-        const { email, username, password, passwordConfirm } = form.toJS();
+        const { name, email, userid, password, passwordConfirm } = form.toJS();
 
         const { validate } = this;
 
         if(error) return; // 현재 에러가 있는 상태라면 진행하지 않음
         if(!validate['email'](email) 
-            || !validate['username'](username) 
+            || !validate['userid'](userid) 
             || !validate['password'](password) 
             || !validate['passwordConfirm'](passwordConfirm)) { 
             // 하나라도 실패하면 진행하지 않음
             return;
         }
-
+        console.log({
+            name, email, userid, password
+        })
         try {
             await AuthActions.localRegister({
-                email, username, password
+                name, email, userid, password
             });
             const loggedInfo = this.props.result.toJS();
             console.log(loggedInfo);
@@ -99,11 +106,18 @@ class Register extends Component {
 
     render() {
         const { error } = this.props;
-        const { email, username, password, passwordConfirm } = this.props.form.toJS();
+        const { name, email, userid, password, passwordConfirm } = this.props.form.toJS();
         const { handleChange, handleLocalRegister } = this;
 
         return (
             <AuthContent title="회원가입">
+                <InputWithLabel 
+                    label="이름" 
+                    name="name"
+                    placeholder="이름" 
+                    value={name} 
+                    onChange={handleChange}
+                />
                 <InputWithLabel 
                     label="이메일"
                     name="email"
@@ -113,9 +127,9 @@ class Register extends Component {
                 />
                 <InputWithLabel 
                     label="아이디" 
-                    name="username" 
+                    name="userid" 
                     placeholder="아이디" 
-                    value={username} 
+                    value={userid} 
                     onChange={handleChange}
                 />
                 <InputWithLabel 
