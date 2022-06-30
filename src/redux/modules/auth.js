@@ -22,7 +22,7 @@ const initialState = Map({
         form: Map({
             name: '',
             email: '',
-            userid: '',
+            userName: '',
             password: '',
             passwordConfirm: ''
         }),

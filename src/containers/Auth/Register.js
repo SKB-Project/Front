@@ -24,7 +24,7 @@ class Register extends Component {
             }
             return true;
         },
-        userid: (value) => {
+        userName: (value) => {
             if(!isAlphanumeric(value) || !isLength(value, { min:4, max: 15 })) {
                 this.setError('아이디는 4~15 글자의 알파벳 혹은 숫자로 이뤄져야 합니다.');
                 return false;
@@ -69,24 +69,24 @@ class Register extends Component {
 
     handleLocalRegister = async () => {
         const { form, AuthActions, error, history } = this.props;
-        const { name, email, userid, password, passwordConfirm } = form.toJS();
+        const { name, email, userName, password, passwordConfirm } = form.toJS();
 
         const { validate } = this;
 
         if(error) return; // 현재 에러가 있는 상태라면 진행하지 않음
         if(!validate['email'](email) 
-            || !validate['userid'](userid) 
+            || !validate['userName'](userName) 
             || !validate['password'](password) 
             || !validate['passwordConfirm'](passwordConfirm)) { 
             // 하나라도 실패하면 진행하지 않음
             return;
         }
         console.log({
-            name, email, userid, password
+            name, email, userName, password
         })
         try {
             await AuthActions.localRegister({
-                name, email, userid, password
+                name, email, userName, password
             });
             const loggedInfo = this.props.result.toJS();
             console.log(loggedInfo);
@@ -106,7 +106,7 @@ class Register extends Component {
 
     render() {
         const { error } = this.props;
-        const { name, email, userid, password, passwordConfirm } = this.props.form.toJS();
+        const { name, email, userName, password, passwordConfirm } = this.props.form.toJS();
         const { handleChange, handleLocalRegister } = this;
 
         return (
@@ -127,9 +127,9 @@ class Register extends Component {
                 />
                 <InputWithLabel 
                     label="아이디" 
-                    name="userid" 
+                    name="userName" 
                     placeholder="아이디" 
-                    value={userid} 
+                    value={userName} 
                     onChange={handleChange}
                 />
                 <InputWithLabel 
