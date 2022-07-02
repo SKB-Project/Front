@@ -21,10 +21,14 @@ class Login extends Component {
             form: 'login'
         });
     }
+    handleLocalLogin = async () =>{
+        this.props.history.push('/user');
+    }
+    
 
     render() {
         const { email, password } = this.props.form.toJS(); // form 에서 email 과 password 값을 읽어옴
-        const { handleChange } = this;
+        const { handleChange, handleLocalLogin } = this;
 
         return (
             <AuthContent title="로그인">
@@ -43,7 +47,7 @@ class Login extends Component {
                     value={password} 
                     onChange={handleChange}
                 />
-                <AuthButton>로그인</AuthButton>
+                <AuthButton onClick={handleLocalLogin}>로그인</AuthButton>
                 <RightLink to="/auth/register">회원가입</RightLink>
             </AuthContent>
         );

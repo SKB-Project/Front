@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as authActions from '../../redux/modules/auth';
 import {isEmail, isLength, isAlphanumeric} from 'validator';
+import { debounce } from 'lodash';
+import axios from 'axios';
 
 class Register extends Component {
     setError = (message) => {
@@ -54,20 +56,9 @@ class Register extends Component {
         AuthActions.initializeForm('register')
     }
 
-    handleChange = (e) => {
-        const { AuthActions } = this.props;
-        const { name, value } = e.target;
-
-        AuthActions.changeInput({
-            name,
-            value,
-            form: 'register'
-        });
-        const validation = this.validate[name](value);
-        if(name.indexOf('password') > -1 || !validation) return;
-    }
-
     handleLocalRegister = async () => {
+        //this.props.history.push('/auth/login');
+
         const { form, AuthActions, error, history } = this.props;
         const { name, email, userName, password, passwordConfirm } = form.toJS();
 
@@ -88,10 +79,10 @@ class Register extends Component {
             await AuthActions.localRegister({
                 name, email, userName, password
             });
-            const loggedInfo = this.props.result.toJS();
+            const loggedInfo = this.props.result.toJS(); // toJS
             console.log(loggedInfo);
             // TODO: 로그인 정보 저장 (로컬스토리지/스토어)
-            history.push('/'); // 회원가입 성공시 홈페이지로 이동
+            history.push('/auth/login'); // 회원가입 성공시 login 페이지로 이동
         } catch(e) {
             console.log(e);
             // 에러 처리하기
@@ -102,6 +93,50 @@ class Register extends Component {
             }
             this.setError('알 수 없는 에러가 발생했습니다.')
         }
+    }
+    checkEmailExists = debounce(async (email) => {
+        try {
+            const response = await axios.get('/user/check/email/' + email);
+            console.log(response.data);
+            if(response.data.result === 'FAIL') {
+                this.setError('이미 존재하는 이메일입니다.');
+            } else {
+                this.setError(null);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    },300) // 함수 호출 시 300ms이후 실행
+
+    checkUsernameExists = debounce(async (username) => {
+        try {
+            const response = await axios.get('/user/check/userName/' + username);
+            console.log(response.data);
+            if(response.data.result === 'FAIL') {
+                this.setError('이미 존재하는 아이디입니다.');
+            } else {
+                this.setError(null);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    },300)
+    handleChange = (e) => {
+        const { AuthActions } = this.props;
+        const { name, value } = e.target;
+
+        AuthActions.changeInput({
+            name,
+            value,
+            form: 'register'
+        });
+        console.log("present status: ",name);
+
+        const validation = this.validate[name](value);
+        if(name.indexOf('password') > -1 || !validation) return;
+
+        const check = name === 'email' ? this.checkEmailExists : this.checkUsernameExists; // name 에 따라 이메일체크할지 아이디 체크 할지 결정
+        check(value);
     }
 
     render() {
@@ -162,6 +197,7 @@ export default connect(
     (state) => ({
         form: state.auth.getIn(['register', 'form']),
         error: state.auth.getIn(['register', 'error']),
+        exists: state.auth.getIn(['register', 'exists']),
         result: state.auth.get('result'),
     }),
     (dispatch) => ({
