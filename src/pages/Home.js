@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import UserHeaderContainer from '../containers/Base/UserHeaderContainer';
+import CardLink from '../components/Auth/CardLink';
+
+import c from './img/공무원.jpg';
+import e from './img/기타.png';
+import b from './img/수능.jpg';
+import d from './img/취업 준비.jpg';
+import a from './img/프로그래밍.png';
+
 const Header = styled.div`
     width: 100%;
     height: 60px;
@@ -85,7 +93,80 @@ const RoadmapTitle = styled.div`
 const ArrowContainer = styled.div`
     display: flex;
 `;
+const ClassList = styled.div`
+display: flex;
+list-style: none;
+padding: 1rem 0;
+margin: 0;
+overflow: none;
+`;
+// const ClassCard = styled.div`
+//     &:hover{
+//         box-shadow: 10px 10px 10px 0px rgba(25, 42, 70, 0.2);
+//         transform: translate(0, -5px);
+//     };
+//     width: 240px;
+//   /* box-shadow: 블럭에 그림자를 적용하는 CSS 기능
+//      https://developer.mozilla.org/ko/docs/Web/CSS/box-shadow 
+//      offset-x | offset-y | blur-radius | spread-radius | color */
+//     box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, 0.2);
+//     border-radius: 8px;
+//     margin: 0 10px;
+//     transition: 0.4s;
+//   /* IE11 에서는 flex 설정시, 디폴트로 flex 아이템들에 고정 너비를 무시 */
+//     flex-shrink: 0;
+// `;
+// const ClassImage = styled.img`
+//     max-width: 240px;
+//     max-height: 200px;
+//   /* border-radius: 블럭 모서리를 둥글게 하는 CSS 기능
+//      top-left | top-right | bottom-right | bottom-left */
+//     border-radius: 8px 8px 0 0;
+// `;
+// const ClassContainer = styled(Link)`
+//     width: 100%;
+//     padding: 0.5rem 1rem 1rem 1rem;
+// `;
+// const ClassSkill = styled.div`
+//     display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// `;
+// const ClassType = styled.div`
+//     font-size: 0.9rem;
+//   color: #949393;
+// `;
+// const ClassFormat = styled.div`
+//     font-size: 0.9rem;
+//   color: #fff;
+//   background-color: #0d47a1;
+//   padding: 0.2rem;
+// `;
+// const ClassDesc = styled.div`
+// &:hover{
+//         color: #2186c4;
+//     };
+//     width: 100%;
+//     margin-top: 1rem;
+//     color: #545e6f;
+// `;
+// const ClassTitle = styled.div`
+//     font-weight: bold;
+//   color: #545e6f;
+//   width: 100%;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   margin-bottom: 0.5rem;
+// `;
+// const ClassDetail = styled.div`
+//     font-size: 0.9rem;
+//     color: #545e6f;
+//     line-height: 1.5rem;
+// `;
+
 class Home extends Component {
+    
     render() {
         return (
             <div>
@@ -121,6 +202,49 @@ class Home extends Component {
 
                             </ArrowContainer>
                         </RoadmapTitleContainer>
+                        <ClassList>
+                            <CardLink 
+                                to="/auth/register" 
+                                img ={a}
+                                type = "Programming"
+                                format="커뮤니티"
+                                title="프로그래밍"
+                                detail="프로그래밍분야에 발담근 개발자들의 장소"
+                            />
+                            <CardLink 
+                                to="/auth/register" 
+                                img ={b}
+                                type = "Colleage Ability Test"
+                                format="커뮤니티"
+                                title="수능"
+                                detail="수능을 준비하는 학생들의 장소"
+                            />
+                            <CardLink 
+                                to="/auth/register" 
+                                img ={c}
+                                type = "Public Official"
+                                format="커뮤니티"
+                                title="title"
+                                detail="공무원을 준비하는 공시생들의 장소"
+                            />
+                            <CardLink 
+                                to="/auth/register" 
+                                img ={d}
+                                type = "Jop"
+                                format="커뮤니티"
+                                title="취업 준비"
+                                detail="취업 준비를 하고있는 취준생들의 장소"
+                            />
+                            <CardLink 
+                                to="/auth/register" 
+                                img ={e}
+                                type = "etc"
+                                format="커뮤니티"
+                                title="기타"
+                                detail="기타 잡다한 이야기를 나누는 장소"
+                            />
+                        </ClassList>
+                        
                     </RoadmapContainer>
                 </Inner>
             </Section>

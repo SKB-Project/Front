@@ -6,7 +6,7 @@ import * as authActions from '../../redux/modules/auth';
 import {isEmail, isLength, isAlphanumeric} from 'validator';
 import { debounce } from 'lodash';
 import axios from 'axios';
-
+import Swal from 'sweetalert2';
 class Register extends Component {
     setError = (message) => {
         const { AuthActions } = this.props;
@@ -82,6 +82,11 @@ class Register extends Component {
             const loggedInfo = this.props.result.toJS(); // toJS
             console.log(loggedInfo);
             // TODO: 로그인 정보 저장 (로컬스토리지/스토어)
+            Swal.fire(
+                '회원가입 성공!',
+                '가입한 아이디로 로그인해주세요!',
+                'success'
+              )
             history.push('/auth/login'); // 회원가입 성공시 login 페이지로 이동
         } catch(e) {
             console.log(e);
