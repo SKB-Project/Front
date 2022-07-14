@@ -15,7 +15,7 @@ const Positioner = styled.div`
 
 //  배경, 내용 중간 정렬
 const ColorBackground = styled.div`
-    background: #fff;
+    background: #fbfcdb;
     display: flex;
     justify-content: center;
     height: auto;

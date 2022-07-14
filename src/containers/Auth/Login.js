@@ -36,12 +36,10 @@ class Login extends Component {
 
         try {
             const response = await axios.post('/user/signIn', { email, password });
-            const tokens = this.props.result.toJS();
 
-            console.log(response.data);
-            console.log(tokens);
-            history.push('/home');
-            storage.set('tokens', tokens);
+            console.log(response.data.data);
+            storage.set('tokens', response.data.data);
+            history.push('/home/homepage');
 
         } catch (e) {
             console.log('a');

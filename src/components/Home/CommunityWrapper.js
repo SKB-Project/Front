@@ -41,14 +41,14 @@ const Contents = styled.div`
     height: auto;
 `;
 
-class AuthWrapper extends Component{
+class CommunityWrapper extends Component{
     render(){
         const {children} = this.props;
         return (
             <Positioner>
         <ShadowedBox>
             <LogoWrapper>
-                <Logo to="/">SWP</Logo>
+                <Logo to="/home">SWP</Logo>
             </LogoWrapper>
             <Contents>
                 {children}
@@ -58,4 +58,4 @@ class AuthWrapper extends Component{
         )
     }
 }
-export default AuthWrapper;
+export default CommunityWrapper;
