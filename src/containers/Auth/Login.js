@@ -35,7 +35,7 @@ class Login extends Component {
         console.log({email, password});
 
         try {
-            const response = await axios.post('/user/singIn', { email, password });
+            const response = await axios.post('/user/signIn', { email, password });
             const tokens = this.props.result.toJS();
 
             console.log(response.data);

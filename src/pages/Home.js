@@ -100,72 +100,24 @@ padding: 1rem 0;
 margin: 0;
 overflow: none;
 `;
-// const ClassCard = styled.div`
-//     &:hover{
-//         box-shadow: 10px 10px 10px 0px rgba(25, 42, 70, 0.2);
-//         transform: translate(0, -5px);
-//     };
-//     width: 240px;
-//   /* box-shadow: 블럭에 그림자를 적용하는 CSS 기능
-//      https://developer.mozilla.org/ko/docs/Web/CSS/box-shadow 
-//      offset-x | offset-y | blur-radius | spread-radius | color */
-//     box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, 0.2);
-//     border-radius: 8px;
-//     margin: 0 10px;
-//     transition: 0.4s;
-//   /* IE11 에서는 flex 설정시, 디폴트로 flex 아이템들에 고정 너비를 무시 */
-//     flex-shrink: 0;
-// `;
-// const ClassImage = styled.img`
-//     max-width: 240px;
-//     max-height: 200px;
-//   /* border-radius: 블럭 모서리를 둥글게 하는 CSS 기능
-//      top-left | top-right | bottom-right | bottom-left */
-//     border-radius: 8px 8px 0 0;
-// `;
-// const ClassContainer = styled(Link)`
-//     width: 100%;
-//     padding: 0.5rem 1rem 1rem 1rem;
-// `;
-// const ClassSkill = styled.div`
-//     display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
-// const ClassType = styled.div`
-//     font-size: 0.9rem;
-//   color: #949393;
-// `;
-// const ClassFormat = styled.div`
-//     font-size: 0.9rem;
-//   color: #fff;
-//   background-color: #0d47a1;
-//   padding: 0.2rem;
-// `;
-// const ClassDesc = styled.div`
-// &:hover{
-//         color: #2186c4;
-//     };
-//     width: 100%;
-//     margin-top: 1rem;
-//     color: #545e6f;
-// `;
-// const ClassTitle = styled.div`
-//     font-weight: bold;
-//   color: #545e6f;
-//   width: 100%;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   margin-bottom: 0.5rem;
-// `;
-// const ClassDetail = styled.div`
-//     font-size: 0.9rem;
-//     color: #545e6f;
-//     line-height: 1.5rem;
-// `;
+const Footer = styled.div`
+border-top: 1px solid #e4e4e4;
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    margin: 1rem 0;
+`;
+const FooterMessage = styled.div`
+font-weight: bold;
+    color: #545e6f;
+    margin: 0.3rem 0.5rem;
+`;
+const FooterContact = styled.div`
+color: #545e6f;
+    margin: 1rem 0.5rem;
+`;
 
-class Home extends Component {
+
+class home extends Component {
     
     render() {
         return (
@@ -248,9 +200,14 @@ class Home extends Component {
                     </RoadmapContainer>
                 </Inner>
             </Section>
+            <Footer>
+                <FooterMessage>내일 후회할 일을 오늘 만들지 말자, 주어진 업무는 바로 이루어내자!</FooterMessage>
+                <FooterContact>네이버 메일: zed6740@naver.com</FooterContact>
+                <FooterContact>구글 메일: zed6740dankook.ac.kr</FooterContact>
+            </Footer>
             </div>
         );
     }
 }
 
-export default Home;
+export default home;

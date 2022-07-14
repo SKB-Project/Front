@@ -113,9 +113,9 @@ class Register extends Component {
         }
     },300) // 함수 호출 시 300ms이후 실행
 
-    checkUsernameExists = debounce(async (username) => {
+    checkUsernameExists = debounce(async (userName) => {
         try {
-            const response = await axios.get('/user/check/userName/' + username);
+            const response = await axios.get('/user/check/userName/' + userName);
             console.log(response.data);
             if(response.data.result === 'FAIL') {
                 this.setError('이미 존재하는 아이디입니다.');
