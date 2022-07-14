@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
-import { shadow, media } from '../../../lib/StyleUtil';
+import { Shadow, Media } from '../../../lib/StyleUtil';
 
 // 상단 고정, 그림자
 const Positioner = styled.div`
@@ -10,12 +10,12 @@ const Positioner = styled.div`
     position: fixed;
     top: 0px;
     width: 100%;
-    ${shadow(1)}
+    ${Shadow(1)}
 `;
 
 //  배경, 내용 중간 정렬
 const ColorBackground = styled.div`
-    background: #fbfcdb;
+    background: #fff;
     display: flex;
     justify-content: center;
     height: auto;
@@ -31,11 +31,11 @@ const HeaderContents = styled.div`
 
     padding-right: 1rem;
     padding-left: 1rem;
-    ${media.wide`
+    ${Media.wide`
         width: 992px;
     `}
 
-    ${media.tablet`
+    ${Media.tablet`
         width: 100%;
     `}
 `;
@@ -59,22 +59,22 @@ const GradientBorder = styled.div`
     background: linear-gradient(to right, #e9defa, ${oc.cyan[5]});
 `;
 
-const Header = ({children}) => {
-    return (
-        <Positioner>
+class Header extends Component{
+    render() {
+        const {children} = this.props;
+        return(
+            <Positioner>
             <ColorBackground>
                 <HeaderContents>
                     <Logo>SWP</Logo>
-                    <styleUtil>
-                        
-                    </styleUtil>
                     <Spacer/>
                     {children}
                 </HeaderContents>
             </ColorBackground>
             <GradientBorder/>
         </Positioner>
-    );
-};
+        )
+    }
+}
 
 export default Header;

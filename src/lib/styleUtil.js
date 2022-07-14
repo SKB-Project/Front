@@ -1,6 +1,6 @@
 import { css,keyframes } from 'styled-components';
 
-export const transitions = {
+export const Transitions = {
     shake: keyframes`
         0% {
             transform: translate(-30px);
@@ -27,7 +27,7 @@ export const sizes = {
     phone: '376px'
 };
 
-export const media = Object.keys(sizes).reduce((acc, label) => {
+export const Media = Object.keys(sizes).reduce((acc, label) => {
     acc[label] = (...args) => css`
         @media (max-width: ${sizes[label]}) {
             ${css(...args)}
@@ -37,7 +37,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 }, {});
 
 // 그림자 효과: https://codepen.io/sdthornton/pen/wBZdXq 기반
-export const shadow = (weight) => {
+export const Shadow = (weight) => {
     const shadows = [
         css`box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);`,
         css`box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);`,

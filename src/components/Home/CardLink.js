@@ -16,7 +16,7 @@ const ClassCard = styled.div`
     transition: 0.8s;
   /* IE11 에서는 flex 설정시, 디폴트로 flex 아이템들에 고정 너비를 무시 */
     flex-shrink: 0;
-    background-color: #fbfcdb;
+    background-color: #fff;
 `;
 const ClassImage = styled.img`
     width: 220px;
@@ -63,12 +63,8 @@ const ClassTitle = styled.div`
   text-overflow: ellipsis;
   margin-bottom: 0.5rem;
 `;
-const ClassDetail = styled.div`
-    font-size: 0.9rem;
-    color: #545e6f;
-    line-height: 1.5rem;
-`;
-const CardLink = ({to, img, type, format, title, detail}) => (
+
+const CardLink = ({to, img, type, format, title}) => (
         <ClassCard>
             <ClassImage src={img}/>
             <ClassContainer to={to}>
@@ -78,7 +74,6 @@ const CardLink = ({to, img, type, format, title, detail}) => (
                 </ClassSkill>
                 <ClassDesc>
                     <ClassTitle>{title}</ClassTitle>
-                    <ClassDetail>{detail}</ClassDetail>
                 </ClassDesc>
             </ClassContainer>
         </ClassCard>

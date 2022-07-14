@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 
@@ -9,11 +9,16 @@ const Title = styled.div`
     margin-bottom: 1rem;
 `;
 
-const AuthContent = ({title, children}) => (
-    <div>
-        <Title>{title}</Title>
-        {children}
-    </div>
-);
+class AuthContent extends Component{
+    render() {
+        const {title, children} = this.props;
+        return(
+            <div>
+             <Title>{title}</Title>
+             {children}
+            </div>
+        )
+    }
+}
 
 export default AuthContent;

@@ -81,13 +81,17 @@ class Register extends Component {
             });
             const loggedInfo = this.props.result.toJS(); // toJS
             console.log(loggedInfo);
+            console.log(loggedInfo.result);
+            if(loggedInfo.result === "SUCCESS"){
+                Swal.fire(
+                    '회원가입 성공!',
+                    '가입한 아이디로 로그인해주세요!',
+                    'success'
+                  )
+                history.push('/auth/login'); // 회원가입 성공시 login 페이지로 이동
+            }
+            this.setError(loggedInfo.data);
             // TODO: 로그인 정보 저장 (로컬스토리지/스토어)
-            Swal.fire(
-                '회원가입 성공!',
-                '가입한 아이디로 로그인해주세요!',
-                'success'
-              )
-            history.push('/auth/login'); // 회원가입 성공시 login 페이지로 이동
         } catch(e) {
             console.log(e);
             // 에러 처리하기

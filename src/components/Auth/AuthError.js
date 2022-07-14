@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
-import { transitions } from '../../lib/StyleUtil';
+import { Transitions } from '../../lib/StyleUtil';
 
 const Wrapper = styled.div`
     margin-top: 1rem;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
     color: ${oc.red[7]};
     font-weight: 500;
     text-align: center;
-    animation: ${transitions.shake} 0.3s ease-in;
+    animation: ${Transitions.shake} 0.3s ease-in;
     animation-fill-mode: forwards;
 `;
 

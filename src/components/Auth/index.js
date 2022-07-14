@@ -4,4 +4,3 @@ export { default as InputWithLabel } from './InputWithLabel';
 export { default as AuthButton } from './AuthButton';
 export { default as RightLink } from './RightLink';
 export { default as AuthError } from './AuthError';
-export { default as CardLink } from './CardLink';

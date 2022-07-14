@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { shadow } from '../../lib/StyleUtil';
+import { Shadow } from '../../lib/StyleUtil';
 import { Link } from 'react-router-dom';
 
 // 화면의 중앙에 위치시킨다
@@ -14,7 +14,7 @@ const Positioner = styled.div`
 // 너비, 그림자 설정
 const ShadowedBox = styled.div`
     width: 500px;
-    ${shadow(2)}
+    ${Shadow(2)}
 `;
 
 // 로고
@@ -41,8 +41,11 @@ const Contents = styled.div`
     height: auto;
 `;
 
-const AuthWrapper = ({children}) => (
-    <Positioner>
+class AuthWrapper extends Component{
+    render(){
+        const {children} = this.props;
+        return (
+            <Positioner>
         <ShadowedBox>
             <LogoWrapper>
                 <Logo to="/">SWP</Logo>
@@ -52,6 +55,7 @@ const AuthWrapper = ({children}) => (
             </Contents>
         </ShadowedBox>
     </Positioner>
-);
-
+        )
+    }
+}
 export default AuthWrapper;
