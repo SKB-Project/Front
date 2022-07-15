@@ -11,11 +11,11 @@ class Home extends Component {
             <div>
             <HomeWrapper>
                 <Route path="/home/homepage" component={HomePage}/>
-                <Route path="/home/community/Programming" component={Programming}/>
-                <Route path="/home/community/ColleageTest" component={Colleage}/>
-                <Route path="/home/community/PublicOfficial" component={Public}/>
-                <Route path="/home/community/Jop" component={Jop}/>
-                <Route path="/home/community/Etc" component={Etc}/>
+                <Route path="/home/Programming" component={Programming}/>
+                <Route path="/home/ColleageTest" component={Colleage}/>
+                <Route path="/home/PublicOfficial" component={Public}/>
+                <Route path="/home/Jop" component={Jop}/>
+                <Route path="/home/Etc" component={Etc}/>
             </HomeWrapper>
             <Link to = "/home/homepage">Go to HomePage</Link>
             </div>

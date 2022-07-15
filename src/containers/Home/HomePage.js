@@ -134,35 +134,35 @@ class HomePage extends Component {
                         </RoadmapTitleContainer>
                         <ClassList>
                             <CardLink 
-                                to="/home/community/Programming" 
+                                to="./Programming" 
                                 img ={a}
                                 type = "Programming"
                                 format="커뮤니티"
                                 title="프로그래밍"
                             />
                             <CardLink 
-                                to="/home/community/ColleageTest" 
+                                to="./ColleageTest" 
                                 img ={b}
                                 type = "Colleage Ability Test"
                                 format="커뮤니티"
                                 title="수능"
                             />
                             <CardLink 
-                                to="/home/community/PublicOfficial" 
+                                to="./PublicOfficial" 
                                 img ={c}
                                 type = "Public Official"
                                 format="커뮤니티"
                                 title="title"
                             />
                             <CardLink 
-                                to="/home/community/Jop" 
+                                to="./Jop" 
                                 img ={d}
                                 type = "Jop"
                                 format="커뮤니티"
                                 title="취업 준비"
                             />
                             <CardLink 
-                                to="/home/community/Etc" 
+                                to="./Etc" 
                                 img ={e}
                                 type = "etc"
                                 format="커뮤니티"

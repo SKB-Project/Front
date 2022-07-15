@@ -1,3 +1,10 @@
 export { default as CardLink} from './CardLink';
 export { default as HomeWrapper} from './HomeWrapper';
-export { default as CommunityWrapper} from './CommunityWrapper';
+export { default as Community} from './Community';
+export { default as CommunityHome} from './CommunityHome';
+export { default as Write} from './Write';
+export { default as RightWrite} from './RightWrite';
+export { default as CommunityHeader} from './CommunityHeader';
+export { default as List} from './List';
+export { default as Post} from './Post';
+export { default as Pagination} from './Pagination';

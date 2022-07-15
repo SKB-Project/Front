@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-
+import { Community, CommunityHeader } from '../../components/Home';
 class Colleage extends Component {
+    constructor(props){
+        super(props)
+        this.state ={
+
+        }
+    }
 
     render() {
         return (
             <div>
-                <h1>saasd</h1>
-                <h6>sadas</h6>
-                <h6>sadas</h6>
-                <h6>sadas</h6>
-                <h6>sadas</h6>
+                <div>
+                    <CommunityHeader type = '수능' Etype = 'ColleageTest'/>
+                </div>
+                <div>
+                    <Community type = '수능' Etype = 'ColleageTest'/>
+                </div>
             </div>
         );
     }
