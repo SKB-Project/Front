@@ -58,7 +58,7 @@
 }
 
 .list_tit {
-    border-bottom: solid 1px #ababab;
+    border-bottom: solid 2.5px #ababab;
     color : #ababab;
 }
 
@@ -68,6 +68,7 @@
 }
 
 .list_data {
+    border-bottom: solid 1px #ababab;
     line-height: 40px;
 }
 
@@ -75,10 +76,29 @@
     text-align: center;
 }
 
+.loading{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+    text-align: center;
+}
 
 .page_num {
     margin-right: 20px;
     list-style: none;
     display : inline-block;
+    cursor: pointer;
+}
+
+.search_input {
+    display: block;
+    padding: 2px;
+    margin-right: 5px;
+    margin-top: 15px;
+    width: 50%;
+}
+
+.serach_submit {
+    position: absolute;
+    margin-top: 14px;
     cursor: pointer;
 }

@@ -4,27 +4,57 @@ import axios from 'axios';
 import storage from '../../lib/storage';
 import Pagination from './Pagination';
 import Post  from './Post';
+import styled from 'styled-components';
+
+const Input = styled.input`
+    text-align: center;
+`;
 
 function List (props) {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(8);
+    const [search, setSearch] = useState("");
+
+    const fetchData = async () => {
+        let tokens = storage.get('tokens');
+        const accessToken = tokens.accessToken;
+        setLoading(true);
+        const data_list = await axios(`/posts/${props.type}/get`, {
+            method : 'GET',
+            headers: { 'Access_Token': accessToken },
+        });
+        // console.log(data_list.data.data);
+        setPosts(data_list.data.data);
+        setLoading(false);
+      };
+
+    const onChangeSearch = (e) =>{
+        e.preventDefault();
+        if(e.target.value === ""){
+            fetchData();
+        }
+        setSearch(e.target.value);
+    }
 
     useEffect(() =>{
-        const fetchData = async () => {
-            let tokens = storage.get('tokens');
-            const accessToken = tokens.accessToken;
-            setLoading(true);
-            const data_list = await axios(`/posts/${props.type}/get`, {
-                method : 'GET',
-                headers: { 'Access_Token': accessToken },
-            });
-            console.log(data_list.data.data);
-            setPosts(data_list.data.data);
-            setLoading(false);
-          };
+        const datas = posts.filter(
+            (list) => list.title.toString().toLowerCase().includes(search));
+        if(datas.length !== 0){
+            setPosts(datas);
+        }
+        //console.log(data);
+    },[search]);
+    // const location = useLocation();
+    // const query = qs.parse(location.search, {
+    //     ignoreQueryPrefix: true
+    //   });
+    // const search = query.search;
+
+    useEffect(() =>{
           fetchData();
+          //console.log(search);
     }, []);
 
 
@@ -41,15 +71,22 @@ function List (props) {
 
         <div className='list_grid list_tit'>
           <div> 제목 </div>
-          <div> 조회수 </div>
+          <div> 좋아요</div>
           <div className='acenter'> 날짜 </div>
         </div>
-        <Post posts={currentPosts(posts)} loading={loading}></Post>
+        <Post posts={currentPosts(posts)} loading={loading} search = {search}></Post>
         <Pagination
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
             paginate={setCurrentPage}
       ></Pagination>
+      <div>
+            <form>
+              <input type='text' maxLength='20' className='search_input' placeholder='검색어를 입력해주세요.'
+                onChange={onChangeSearch}
+              />
+            </form>
+        </div>
             
       </div>
     );

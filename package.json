@@ -47,6 +47,7 @@
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.0.1",
     "prompts": "^2.4.2",
+    "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.1",
@@ -56,6 +57,7 @@
     "react-redux": "^8.0.2",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^5.3.3",
+    "react-search-box": "^2.2.1",
     "redux": "^4.1.2",
     "redux-actions": "^2.6.5",
     "redux-pender": "^2.0.12",
@@ -99,7 +101,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://23.23.240.178:8080",
+  "proxy": "http://localhost:8080",
   "jest": {
     "roots": [
       "<rootDir>/src"
