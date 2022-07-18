@@ -1,15 +1,21 @@
 import React from "react";
 import './Community.css';
+import { Link } from "react-router-dom";
 
-const Posts = ({ posts, loading ,search}) => {
+const Posts = ({ Etype, posts, loading ,search}) => {
+
   return (
     <>
       {loading && <div className = 'loading'> loading... </div>}
         {posts && posts.length > 0 ? posts.map((post) => (
-          <div className="list_gird list_data" key={post.title}>
+          <div className="list_grid list_data" key={post.title}>
             <div>
-                {post.title}
+                <Link to = {`/home/${Etype}/view/${post.postId}`}>{post.title}</Link>
             </div>
+            <div>
+              
+            </div>
+            <div className='acenter'> {post.dateTime.slice(0, 10)} </div>
           </div>
         ))
         :

@@ -4,11 +4,7 @@ import axios from 'axios';
 import storage from '../../lib/storage';
 import Pagination from './Pagination';
 import Post  from './Post';
-import styled from 'styled-components';
 
-const Input = styled.input`
-    text-align: center;
-`;
 
 function List (props) {
     const [posts, setPosts] = useState([]);
@@ -25,7 +21,7 @@ function List (props) {
             method : 'GET',
             headers: { 'Access_Token': accessToken },
         });
-        // console.log(data_list.data.data);
+        console.log(data_list.data.data);
         setPosts(data_list.data.data);
         setLoading(false);
       };
@@ -74,7 +70,7 @@ function List (props) {
           <div> 좋아요</div>
           <div className='acenter'> 날짜 </div>
         </div>
-        <Post posts={currentPosts(posts)} loading={loading} search = {search}></Post>
+        <Post posts={currentPosts(posts)} loading={loading} search = {search} Etype = {props.Etype}></Post>
         <Pagination
             postsPerPage={postsPerPage}
             totalPosts={posts.length}

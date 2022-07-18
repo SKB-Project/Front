@@ -20,7 +20,8 @@ class RightWrite extends Component {
   
     let tokens = storage.get('tokens');
     const accessToken = tokens.accessToken;
-
+    console.log(accessToken);
+    
     const data = {type : this.props.type, title : title, content : content}
     console.log(data);
 

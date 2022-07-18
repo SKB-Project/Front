@@ -37,9 +37,15 @@ class Login extends Component {
         try {
             const response = await axios.post('/user/signIn', { email, password });
 
+            console.log(response.data.result);
             console.log(response.data.data);
-            storage.set('tokens', response.data.data);
-            history.push('/home/homepage');
+            if(response.data.result === "SUCCESS"){
+                storage.set('tokens', response.data.data);
+                history.push('/home/homepage');
+            }
+            else{
+                this.setError(response.data.data);
+            }
 
         } catch (e) {
             console.log('a');

@@ -5,6 +5,7 @@ import Write from "./Write";
 import RightWrite from "./RightWrite";
 import { Route } from "react-router-dom";
 import List from "./List";
+import EachListView from "./EachListView";
 
 class Community extends Component{
     // constructor(props){
@@ -18,9 +19,10 @@ class Community extends Component{
                     </div>
                     <div>
                         <Route path={'/home/' + this.props.Etype} 
-                        render = {() => <List type = {this.props.type}/> } exact/>
+                        render = {() => <List type = {this.props.type} Etype = {this.props.Etype}/> } exact/>
+
                         <Route path={'/home/' + this.props.Etype+'/write'} component={Write} />
-                        {/* <Write></Write> */}
+                        <Route path={'/home/' + this.props.Etype+'/view/:data'} component={EachListView} />
                     </div>
                     <div id='Mains-right'>
                         <Route path={'/home/' + this.props.Etype+'/write'} 
