@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Ckeditor } from '../../inc';
 import './Community.css';
 
 class Write extends Component {
@@ -7,15 +8,20 @@ class Write extends Component {
   // }
 
   render() {
+    const { _getContents, content } = this.props;
 
     return (
-        <div>
-            <div className = 'Write'>
+        <div className = 'Write'>
+            <div id = 'Title'>
                 <input type='text' id='title_txt' name='title' placeholder='제목'/>
             </div>
 
            <div>
-                <textarea id='content_txt' name='content' placeholder='내용을 입력하세요.'/> 
+                {/* <CKEditor/> */}
+                <Ckeditor
+                _getContents = { _getContents } 
+                content = { content }
+                />
             </div>
         </div>
     );

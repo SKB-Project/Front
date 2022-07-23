@@ -10,8 +10,10 @@ class RightWrite extends Component {
 
   submitBoard = async () =>{
     const title = document.getElementsByName('title')[0].value.trim();
-    const content = document.getElementsByName('content')[0].value.trim();
+    const content = this.props.content;
   
+
+    console.log(content);
     if(title === ""){
       return alert('제목을 입력해주세요.');
     } else if(content === ""){
@@ -32,6 +34,7 @@ class RightWrite extends Component {
         headers: { 'Access_Token': accessToken },
       })
       console.log(res.data);
+
     }
     catch(e){
       console.log(e);

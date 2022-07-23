@@ -67,7 +67,7 @@ function List (props) {
 
         <div className='list_grid list_tit'>
           <div> 제목 </div>
-          <div> 좋아요</div>
+          <div> 조회수</div>
           <div className='acenter'> 날짜 </div>
         </div>
         <Post posts={currentPosts(posts)} loading={loading} search = {search} Etype = {props.Etype}></Post>

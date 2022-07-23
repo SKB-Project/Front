@@ -13,7 +13,7 @@ const Posts = ({ Etype, posts, loading ,search}) => {
                 <Link to = {`/home/${Etype}/view/${post.postId}`}>{post.title}</Link>
             </div>
             <div>
-              
+              {post.viewCount}
             </div>
             <div className='acenter'> {post.dateTime.slice(0, 10)} </div>
           </div>
