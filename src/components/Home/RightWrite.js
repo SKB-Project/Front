@@ -20,8 +20,10 @@ class RightWrite extends Component {
       return alert('내용을 입력해주세요.');
     }
   
-    let tokens = storage.get('tokens');
-    const accessToken = tokens.accessToken;
+   
+    const tokens = storage.get('tokens');
+    console.log(tokens);
+    const accessToken = tokens.tokenDto.accessToken;
     console.log(accessToken);
     
     const data = {type : this.props.type, title : title, content : content}
@@ -48,7 +50,7 @@ class RightWrite extends Component {
     return (
         <div>
           <div id='post_submit'>
-            <button onClick={submitBoard}> 게시글 작성 : {this.props.type}</button>
+            <button onClick={submitBoard}> 게시글 작성 </button>
           </div>
         </div>
     );

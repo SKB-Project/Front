@@ -14,8 +14,8 @@ function List (props) {
     const [search, setSearch] = useState("");
 
     const fetchData = async () => {
-        let tokens = storage.get('tokens');
-        const accessToken = tokens.accessToken;
+        const tokens = storage.get('tokens');
+        const accessToken = tokens.tokenDto.accessToken;
         setLoading(true);
         const data_list = await axios(`/posts/${props.type}/get`, {
             method : 'GET',

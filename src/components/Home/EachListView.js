@@ -23,9 +23,10 @@ class EachListView extends Component {
         const board_id = parseInt(this.props.match.params.data,10);
         const cookie_name = 'board_' + board_id;
         const exist_cookie = getCookie(cookie_name);
+        console.log(expires);
         if(!exist_cookie){
           console.log(exist_cookie, "! , 쿠키가 존재하지 않습니다!");
-          setCookie(cookie_name, true, { expires: expires });
+          setCookie(cookie_name, true, expires);
           this.setState({ cookie_name: getCookie(cookie_name) });
         }
     };
@@ -62,14 +63,16 @@ class EachListView extends Component {
 
     addViewCnt = async () => {
         const tokens = storage.get('tokens');
-        const accessToken = tokens.accessToken;
-        // console.log(accessToken);
+        console.log(tokens);
+        const accessToken = tokens.tokenDto.accessToken;
+        console.log(accessToken);
 
         const board_id = parseInt(this.props.match.params.data,10);
         // console.log(board_id);
         // console.log(typeof(board_id));
         const cookie_name = 'board_' + board_id;
         const exist_cookie = getCookie(cookie_name);
+        console.log(exist_cookie);
         if(!exist_cookie){
           console.log(exist_cookie, "! , 쿠키가 존재하지 않습니다!");
           try {
@@ -88,22 +91,52 @@ class EachListView extends Component {
 
 render(){
     const { data, date } = this.state;
+    const { pre, next } = this.state;
     return (
         <div className='Write'>
           {data
           ? <div>
+              <div className='write_option_div'>
+                <input type='button' value='수정' />
+                <input type='button' value='삭제' />
+              </div>
 
-              <div className='top_title'>
-                <input type='text' id='title_txt' name='title' defaultValue={data.title} readOnly/>
+                <div className='top_title'>
+                  <input type='text' id='title_txt' name='title' defaultValue={data.title} readOnly/>
 
-                <div className='date_div'>
-                  {date}
+                  <div className='date_div'>
+                    {date}
+                  </div>
                 </div>
-              </div>
-              
-              <div dangerouslySetInnerHTML={ { __html : data.content }}>
-              </div>
+                
+                <div dangerouslySetInnerHTML={ { __html : data.content }}>
+                </div>
+
+                <div className='other_div'>
+                  <div className='view_pre_next_div view_pre'> 
+                      {/* left empty*/}
+                      <p> 이전글 </p>
+                      <img src={pre}/>
+                  </div>
+                  <div className='view_pre_next_div view_next'> 
+                      {/* right empty*/} 
+                      <p> 다음글 </p>
+                      <img src={next}/>
+                  </div>
+                </div>
+                <div className='Reply_div'>
+                  <h4> 댓글 </h4>
+
+                  <div className='Reply_write'>
+                        <textarea rows='3'placeholder='100자 이내의 글을 입력해주세요.'
+                                  maxLength='100' name='write_reply'>
+                        </textarea>
+                        <input type='button' value='등록' id='reply_submit_button'/>
+                  </div>
+                </div>
+
             </div>
+  
           : null}
         </div>
     );

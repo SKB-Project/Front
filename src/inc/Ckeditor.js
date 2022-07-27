@@ -20,7 +20,7 @@ class Ckeditor extends Component {
                 } }
                 onChange={ ( event, editor ) => {
                     const data = editor.getData();
-                    console.log( { event, editor, data } );
+                    console.log( { data } );
                 } }
                 onBlur={ ( event, editor ) => {
                     const data = editor.getData();

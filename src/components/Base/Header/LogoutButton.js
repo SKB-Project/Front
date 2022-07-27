@@ -28,7 +28,8 @@ const BorderedButton = styled(Link)`
 
 
 `;
-
+ // 로그아웃 버튼 누를 떄 logout api호출하고
+ // storage에 담긴 token 삭제 해야함
 const LogoutButton = () => (
     <BorderedButton to="/">
         로그아웃

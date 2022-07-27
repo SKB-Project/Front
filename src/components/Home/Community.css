@@ -125,3 +125,64 @@
     margin-left: 50px;
     width: 86.3%;
 }
+
+.View {
+    padding: 50px 70px 0px 70px;
+}
+
+.write_option_div {
+    margin-left: 87%;
+}
+
+.write_option_div input {
+    margin-right: 10px;
+    padding: 3px 7px 3px 7px;
+    border-radius: 2px;
+    border : solid 1px #ababab;
+    cursor: pointer;
+    background-color: white;
+}
+
+.other_div { 
+    margin-top: 300px; 
+    border-top: solid 1px #ababab;
+    display: grid;
+    grid-template-columns: 25% 40% 25%;
+}
+
+.view_pre_next_div { margin-top: 20px; }
+.other_div .view_next { margin-left: 155%; width: 100%; }
+.other_div .view_pre { margin-left: 20%; }
+.other_div div p { color : #ababab }
+.other_div .view_next p { margin-left: -25px;}
+.other_div .view_pre p { margin-left: 10px;}
+
+.Reply_div {
+    border-top: solid 1px #ababab;
+    margin-top: 40px;
+}
+
+.Reply_div h4 { margin-top: 50px; margin-left: 30px; }
+.Reply_div .Reply_write {
+    height: 150px;
+    border-bottom: solid 1px #ababab;
+}
+
+.Reply_div .Reply_write textarea {
+    width: 80%;
+    padding: 10px;
+    resize: none;
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: 30px;
+}
+
+#reply_submit_button {
+    position: absolute;
+    width: 7%;
+    height: 15.7%;
+    margin-top: -0px;
+    background-color: white;
+    border: solid 1px #ababab;
+    cursor: pointer;
+}

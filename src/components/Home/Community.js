@@ -12,11 +12,17 @@ class Community extends Component{
         super(props)
         this.state = {
             content : "",
+            title : "",
         }
     }
+    _getTitles = () => {
+        const title = document.getElementsByName('title')[0].value.trim();
+        console.log("title", title);
+        this.setState({ title : title })
+      }
     _getContents = (val) => {
         const content = val.trim();
-    
+        console.log("Community", content);
         this.setState({ content : content })
     }
     _withProps = function (Component, props) {
@@ -25,8 +31,8 @@ class Community extends Component{
         }
       }
     render() {
-        const { _getContents } = this;
-        const { content } = this.state;
+        const { _getContents,_getTitles } = this;
+        const { content,title } = this.state;
 
         return(
             <div>
@@ -38,8 +44,11 @@ class Community extends Component{
                         render = {() => <List type = {this.props.type} Etype = {this.props.Etype}/> } exact/>
 
                         <Route path={'/home/' + this.props.Etype+'/write'} component={this._withProps(Write, { 
-         _getContents : _getContents, 
-         content : content })}/>
+                            _getContents : _getContents, 
+                            _getTitles : _getTitles,
+                            title : title,
+                            content : content
+                             })}/>
                         <Route path={'/home/' + this.props.Etype+'/view/:data'} component={EachListView} />
                     </div>
                     <div id='Mains-right'>
