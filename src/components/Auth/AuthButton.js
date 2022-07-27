@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Shadow } from '../../lib/StyleUtil';
+import { Shadow } from '../../lib/styleutil';
 
 const Wrapper = styled.div`
     margin-top: 1rem;

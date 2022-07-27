@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Shadow } from '../../lib/StyleUtil';
+import { Shadow } from '../../lib/styleutil';
 import { Link } from 'react-router-dom';
 
 // 화면의 중앙에 위치시킨다

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
-import { Shadow, Media } from '../../../lib/StyleUtil';
+import { Shadow, Media } from '../../../lib/styleutil';
 
 // 상단 고정, 그림자
 const Positioner = styled.div`
