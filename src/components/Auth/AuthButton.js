@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Shadow } from '../../lib/styleutil';
 
 const Wrapper = styled.div`
     margin-top: 1rem;
@@ -20,7 +19,6 @@ const Wrapper = styled.div`
 
     &:hover {
         background: #c8acf2;
-        ${Shadow(0)}
     }
 
     &:active {

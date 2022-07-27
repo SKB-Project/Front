@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Shadow } from '../../lib/styleutil';
 import { Link } from 'react-router-dom';
 
 // 화면의 중앙에 위치시킨다
@@ -14,7 +13,6 @@ const Positioner = styled.div`
 // 너비, 그림자 설정
 const ShadowedBox = styled.div`
     width: 500px;
-    ${Shadow(2)}
 `;
 
 // 로고

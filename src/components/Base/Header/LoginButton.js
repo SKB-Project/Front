@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
-import { Shadow } from '../../../lib/styleutil';
 
 const BorderedButton = styled(Link)`
     font-weight: 600;
@@ -18,7 +17,6 @@ const BorderedButton = styled(Link)`
     &:hover {
         background: ${oc.cyan[6]};
         color: white;
-        ${Shadow(1)}
     }
 
     &:active {

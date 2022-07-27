@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
-import { Shadow, Media } from '../../../lib/styleutil';
 
 // 상단 고정, 그림자
 const Positioner = styled.div`
@@ -10,7 +9,6 @@ const Positioner = styled.div`
     position: fixed;
     top: 0px;
     width: 100%;
-    ${Shadow(1)}
 `;
 
 //  배경, 내용 중간 정렬
@@ -31,13 +29,6 @@ const HeaderContents = styled.div`
 
     padding-right: 1rem;
     padding-left: 1rem;
-    ${Media.wide`
-        width: 992px;
-    `}
-
-    ${Media.tablet`
-        width: 100%;
-    `}
 `;
 
 // 로고
