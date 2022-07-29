@@ -12,19 +12,23 @@ class EachListView extends Component {
       const cookie_name = 'board_' + board_id;
       this.state = {
           data : {},
+          nexttitle : "",
+          prevtitle : "",
           date : "",
           cookie_name : getCookie(cookie_name) || ""
       }
     }
 
     handleSetCookie()  { // 조회수 중복을 막기 위한 쿠키설정함수
+        const userdata = storage.get('tokens');
+        const user = userdata.userId;
         const expires = new Date();
         expires.setDate(expires.getDate() + 1);
         const board_id = parseInt(this.props.match.params.data,10);
-        const cookie_name = 'board_' + board_id;
+        const cookie_name = 'board_' + board_id + user;
         const exist_cookie = getCookie(cookie_name);
         console.log(expires);
-        if(!exist_cookie){
+        if(!exist_cookie){ // 쿠키로 조회수 중복 금지 다만 한 회원에만 한해야 함
           console.log(exist_cookie, "! , 쿠키가 존재하지 않습니다!");
           setCookie(cookie_name, true, expires);
           this.setState({ cookie_name: getCookie(cookie_name) });
@@ -33,13 +37,15 @@ class EachListView extends Component {
 
     componentDidMount() {
         this.fetchData();
+        this.fetchNextData();
+        this.fetchPrevData();
         this.addViewCnt();
         this.handleSetCookie();
       };
 
     fetchData = async () => {
         const tokens = storage.get('tokens');
-        const accessToken = tokens.accessToken;
+        const accessToken = tokens.tokenDto.accessToken;
         // console.log(accessToken);
         
         const board_id = parseInt(this.props.match.params.data,10);
@@ -60,9 +66,59 @@ class EachListView extends Component {
             console.log(e);
         }
     };
+    fetchPrevData = async () => {
+      const tokens = storage.get('tokens');
+      const accessToken = tokens.tokenDto.accessToken;
+      // console.log(accessToken);
+      
+      const board_id = parseInt(this.props.match.params.data,10);
+      // console.log(board_id);
+      // console.log(typeof(board_id));
+
+      try {
+          const data_list = await axios(`/post/prev/${board_id}/get`, {
+              method : 'GET',
+              headers: { 'Access_Token': accessToken },
+          });
+          // console.log(data_list.data.result);
+          // console.log(data_list.data.data.dateTime);
+          console.log(data_list.data.data.title);
+          if(data_list.data.result === "SUCCESS"){
+            return this.setState({ prevdata : data_list.data.data.title});
+          }
+
+      } catch (e) {
+          console.log(e);
+      }
+  };
+  fetchNextData = async () => {
+    const tokens = storage.get('tokens');
+    const accessToken = tokens.tokenDto.accessToken;
+    // console.log(accessToken);
+    
+    const board_id = parseInt(this.props.match.params.data,10);
+    // console.log(board_id);
+    // console.log(typeof(board_id));
+
+    try {
+        const data_list = await axios(`/post/next/${board_id}/get`, {
+            method : 'GET',
+            headers: { 'Access_Token': accessToken },
+        });
+        console.log(data_list.data.data.title);
+        // console.log(data_list.data.data.dateTime);
+        if(data_list.data.result === "SUCCESS"){
+          return this.setState({ nextdata : data_list.data.data.title});
+        }
+
+    } catch (e) {
+        console.log(e);
+    }
+};
 
     addViewCnt = async () => {
         const tokens = storage.get('tokens');
+        const user = tokens.userId;
         console.log(tokens);
         const accessToken = tokens.tokenDto.accessToken;
         console.log(accessToken);
@@ -70,7 +126,7 @@ class EachListView extends Component {
         const board_id = parseInt(this.props.match.params.data,10);
         // console.log(board_id);
         // console.log(typeof(board_id));
-        const cookie_name = 'board_' + board_id;
+        const cookie_name = 'board_' + board_id + user;
         const exist_cookie = getCookie(cookie_name);
         console.log(exist_cookie);
         if(!exist_cookie){
@@ -90,7 +146,7 @@ class EachListView extends Component {
   
 
 render(){
-    const { data, date } = this.state;
+    const { data, date, prevtitle, nexttitle } = this.state;
     const { pre, next } = this.state;
     return (
         <div className='Write'>
@@ -114,13 +170,11 @@ render(){
 
                 <div className='other_div'>
                   <div className='view_pre_next_div view_pre'> 
-                      {/* left empty*/}
-                      <p> 이전글 </p>
+                    {prevtitle == undefined ? <p>처음 글</p> : prevtitle}
                       <img src={pre}/>
                   </div>
                   <div className='view_pre_next_div view_next'> 
-                      {/* right empty*/} 
-                      <p> 다음글 </p>
+                  {nexttitle == undefined ? <p>마지막 글</p> : nexttitle}
                       <img src={next}/>
                   </div>
                 </div>

@@ -30,6 +30,7 @@ class Community extends Component{
           return <Component {...props} {...matchProps} />
         }
       }
+
     render() {
         const { _getContents,_getTitles } = this;
         const { content,title } = this.state;
