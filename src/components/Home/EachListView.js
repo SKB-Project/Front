@@ -53,9 +53,10 @@ class EachListView extends Component {
         // console.log(typeof(board_id));
 
         try {
-            const data_list = await axios(`/post/${board_id}/get`, {
+            const data_list = await axios(process.env.REACT_APP_DB_HOST +`/post/${board_id}/get`, {
                 method : 'GET',
                 headers: { 'Access_Token': accessToken },
+                withCredentials: true,
             });
             // console.log(data_list.data.data);
             // console.log(data_list.data.data.dateTime);
@@ -76,9 +77,10 @@ class EachListView extends Component {
       // console.log(typeof(board_id));
 
       try {
-          const data_list = await axios(`/post/prev/${board_id}/get`, {
+          const data_list = await axios(process.env.REACT_APP_DB_HOST+`/post/prev/${board_id}/get`, {
               method : 'GET',
               headers: { 'Access_Token': accessToken },
+              withCredentials: true,
           });
           // console.log(data_list.data.result);
           // console.log(data_list.data.data.dateTime);
@@ -101,9 +103,10 @@ class EachListView extends Component {
     // console.log(typeof(board_id));
 
     try {
-        const data_list = await axios(`/post/next/${board_id}/get`, {
+        const data_list = await axios(process.env.REACT_APP_DB_HOST+`/post/next/${board_id}/get`, {
             method : 'GET',
             headers: { 'Access_Token': accessToken },
+            withCredentials: true,
         });
         console.log(data_list.data.data.title);
         // console.log(data_list.data.data.dateTime);

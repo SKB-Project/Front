@@ -6,15 +6,16 @@ class HeaderContainer extends Component {
     render() {
         const { visible } = this.props;
         if(!visible) return null;
-        let tokens = storage.get('tokens');
-        const accessToken = tokens.accessToken;
-        console.log(accessToken);
-        if(accessToken != null){
+        // let tokens = storage.get('tokens');
+        // const accessToken = tokens.accessToken;
+        // console.log(accessToken);
+        // if(accessToken != null){
 
-        }
+        // }
         return (
             <Header>
-                {accessToken === null ? <LoginButton/> : <LoginButton/>}
+                {/* {accessToken === null ? <LoginButton/> : <LoginButton/>} */}
+                <LoginButton/>
             </Header>
         );
     }

@@ -17,9 +17,10 @@ function List (props) {
         const tokens = storage.get('tokens');
         const accessToken = tokens.tokenDto.accessToken;
         setLoading(true);
-        const data_list = await axios(`/posts/${props.type}/get`, {
+        const data_list = await axios(process.env.REACT_APP_DB_HOST +`/posts/${props.type}/get`, {
             method : 'GET',
             headers: { 'Access_Token': accessToken },
+            withCredentials: true,
         });
         console.log(data_list.data.data);
         setPosts(data_list.data.data);
@@ -58,7 +59,9 @@ function List (props) {
     const indexOfFirst = indexOfLast - postsPerPage;
     const currentPosts = (posts) => {
         let currentPosts = 0;
-        currentPosts = posts.slice(indexOfFirst, indexOfLast);
+        if(posts.length){
+          currentPosts = posts.slice(indexOfFirst, indexOfLast);
+        }
         return currentPosts;
     };
 

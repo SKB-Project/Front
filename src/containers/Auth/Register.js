@@ -105,7 +105,8 @@ class Register extends Component {
     }
     checkEmailExists = debounce(async (email) => {
         try {
-            const response = await axios.get('/user/check/email/' + email);
+            const response = await axios.get(process.env.REACT_APP_DB_HOST +'/user/check/email/' + email, 
+            { withCredentials: true});
             console.log(response.data);
             if(response.data.result === 'FAIL') {
                 this.setError('이미 존재하는 이메일입니다.');
@@ -119,7 +120,8 @@ class Register extends Component {
 
     checkUsernameExists = debounce(async (userName) => {
         try {
-            const response = await axios.get('/user/check/userName/' + userName);
+            const response = await axios.get(process.env.REACT_APP_DB_HOST + '/user/check/userName/' + userName,
+            { withCredentials: true});
             console.log(response.data);
             if(response.data.result === 'FAIL') {
                 this.setError('이미 존재하는 아이디입니다.');
