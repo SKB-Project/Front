@@ -8,6 +8,9 @@ module.exports=function(app){
             {
             target: "http://localhost:8080",
             changeOrigin : true,
+            onProxyRes: function(proxyRes, req, res) {
+                proxyRes.headers['Access-Control-Allow-Private-Network'] = 'true';
+             }
          }
         )
     );

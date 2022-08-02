@@ -33,7 +33,7 @@ class Login extends Component {
         const { form, history } = this.props;
         const { email, password } = form.toJS();
         console.log({email, password});
-        
+        console.log(process.env.REACT_APP_DB_HOST);
         try {
             const response = await axios.post(process.env.REACT_APP_DB_HOST + '/user/signIn', 
             { email, password },
