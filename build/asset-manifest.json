@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.53141b6d.css",
-    "main.js": "/static/js/main.ea2a2d7f.js",
+    "main.js": "/static/js/main.6ac82cbd.js",
     "static/js/787.18e38244.chunk.js": "/static/js/787.18e38244.chunk.js",
     "static/media/프로그래밍.png": "/static/media/프로그래밍.4417eb7043e5c92baaa6.png",
     "static/media/수능.jpg": "/static/media/수능.30301aa8b2a56bb54a74.jpg",
@@ -9,11 +9,11 @@
     "static/media/취업 준비.jpg": "/static/media/취업 준비.05e9ec1e359c42317ab5.jpg",
     "index.html": "/index.html",
     "main.53141b6d.css.map": "/static/css/main.53141b6d.css.map",
-    "main.ea2a2d7f.js.map": "/static/js/main.ea2a2d7f.js.map",
+    "main.6ac82cbd.js.map": "/static/js/main.6ac82cbd.js.map",
     "787.18e38244.chunk.js.map": "/static/js/787.18e38244.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.53141b6d.css",
-    "static/js/main.ea2a2d7f.js"
+    "static/js/main.6ac82cbd.js"
   ]
 }
