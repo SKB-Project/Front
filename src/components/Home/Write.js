@@ -9,8 +9,6 @@ class Write extends Component {
 
   render() {
     const { _getContents, _getTitles,content, title } = this.props;
-
-    console.log(content,",",title)
     return (
         <div className = 'Write'>
             <div id = 'Title'>
@@ -20,7 +18,6 @@ class Write extends Component {
             </div>
 
            <div>
-                {/* <CKEditor/> */}
                 <Ckeditor
                 _getContents = { _getContents } 
                 content = { content }
