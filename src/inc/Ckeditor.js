@@ -17,6 +17,7 @@ class Ckeditor extends Component {
                 onReady={ editor => {
                     // You can store the "editor" and use when it is needed.
                     console.log( 'Editor is ready to use!', editor );
+                    console.log( 'content: ', content );
                 } }
                 onChange={ ( event, editor ) => {
                     const data = editor.getData();

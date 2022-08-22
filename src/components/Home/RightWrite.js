@@ -11,8 +11,6 @@ class RightWrite extends Component {
   submitBoard = async () =>{
     const title = document.getElementsByName('title')[0].value.trim();
     const content = this.props.content;
-
-    console.log(content);
     if(title === ""){
       return alert('제목을 입력해주세요.');
     } else if(content === ""){
@@ -21,7 +19,7 @@ class RightWrite extends Component {
    
     const tokens = storage.get('tokens');
     const accessToken = tokens.tokenDto.accessToken;
-    
+    console.log(accessToken);
     const data = {type : this.props.type, title : title, content : content}
     console.log(data);
 
@@ -32,7 +30,7 @@ class RightWrite extends Component {
         headers: { 'Access_Token': accessToken },
         withCredentials: true,
       })
-      console.log(res.data);
+      // console.log(res.data);
       return alert('게시글 작성 완료');
     }
     catch(e){
@@ -93,6 +91,9 @@ class RightWrite extends Component {
     return (
         <div>
           <div id='post_submit'>
+          <button onClick={submitBoard}>
+                  <Link to={'/home/' + this.props.Etype}>게시글 작성</Link>
+                </button> 
             {
                !data ? 
                <button onClick={submitBoard}>

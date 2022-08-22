@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { CardLink } from '../../components/Home';
 
-import c from './img/공무원.jpg';
-import e from './img/기타.png';
-import b from './img/수능.jpg';
-import d from './img/취업 준비.jpg';
-import a from './img/프로그래밍.png';
-
 const Section = styled.section`
 padding-top: 40px;
 width: 100%;
@@ -71,8 +65,8 @@ const RoadmapTitle = styled.div`
     font-weight: bold;
     color: #545e6f;
 `;
-const ArrowContainer = styled.div`
-    display: flex;
+const marginContainer = styled.div`
+    margin-top: 10%;
 `;
 const ClassList = styled.div`
 display: flex;
@@ -126,47 +120,51 @@ class HomePage extends Component {
                     <RoadmapContainer>
                         <RoadmapTitleContainer>
                             <RoadmapTitle>
-                                Select Study Type
+                                커뮤니티 🧑‍🤝‍🧑
                             </RoadmapTitle>
-                            <ArrowContainer>
-
-                            </ArrowContainer>
                         </RoadmapTitleContainer>
                         <ClassList>
                             <CardLink 
                                 to="./Programming" 
-                                img ={a}
                                 type = "Programming"
-                                format="커뮤니티"
                                 title="프로그래밍"
                             />
                             <CardLink 
                                 to="./ColleageTest" 
-                                img ={b}
                                 type = "Colleage Ability Test"
-                                format="커뮤니티"
                                 title="수능"
                             />
                             <CardLink 
                                 to="./PublicOfficial" 
-                                img ={c}
                                 type = "Public Official"
-                                format="커뮤니티"
-                                title="title"
+                                title="공무원"
                             />
                             <CardLink 
                                 to="./Jop" 
-                                img ={d}
                                 type = "Jop"
-                                format="커뮤니티"
                                 title="취업 준비"
                             />
                             <CardLink 
                                 to="./Etc" 
-                                img ={e}
                                 type = "etc"
-                                format="커뮤니티"
                                 title="기타"
+                            />
+                        </ClassList>
+                        <RoadmapTitleContainer>
+                            <RoadmapTitle>
+                                 공부 도구
+                            </RoadmapTitle>
+                        </RoadmapTitleContainer>
+                        <ClassList>
+                            <CardLink 
+                                to="./Programming" 
+                                type = "Study"
+                                title="스터디 모집"
+                            />
+                            <CardLink 
+                                to="./ColleageTest" 
+                                type = "Planner"
+                                title="플래너 작성"
                             />
                         </ClassList>
                         
