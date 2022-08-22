@@ -91,9 +91,6 @@ class RightWrite extends Component {
     return (
         <div>
           <div id='post_submit'>
-          <button onClick={submitBoard}>
-                  <Link to={'/home/' + this.props.Etype}>게시글 작성</Link>
-                </button> 
             {
                !data ? 
                <button onClick={submitBoard}>
