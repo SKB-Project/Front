@@ -43,6 +43,7 @@ class Login extends Component {
             console.log(response.data.data);
             if(response.data.result === "SUCCESS"){
                 storage.set('tokens', response.data.data);
+                console.log(response.data.data);
                 history.push('/home/homepage');
             }
             else{

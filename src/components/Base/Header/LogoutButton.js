@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
 import { Link } from 'react-router-dom';
+import storage from '../../../lib/storage';
 
 const BorderedButton = styled(Link)`
     font-weight: 600;
@@ -23,13 +24,21 @@ const BorderedButton = styled(Link)`
         /* 마우스 클릭시 아래로 미세하게 움직임 */
         transform: translateY(3px);
     }
-
-
 `;
+
+const logout = () => {
+    if(window.confirm('로그아웃 하시겠습니까?\n처음화면으로 돌아갑니다.')){
+    let tokens = storage.get('tokens');
+    console.log("tokens: ", tokens);
+    storage.remove("tokens");
+    window.location.replace("/");
+    }
+  }
+
  // 로그아웃 버튼 누를 떄 logout api호출하고
  // storage에 담긴 token 삭제 해야함
 const LogoutButton = () => (
-    <BorderedButton to="/">
+    <BorderedButton to="/" onClick={logout}>
         로그아웃
     </BorderedButton>
 );

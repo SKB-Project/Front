@@ -14,3 +14,7 @@ export const setCookie = (name,value,expires)=>{
 export const getCookie = (name)=>{
 	return cookies.get(name)
 }
+
+export const removeCookieToken = (name) => {
+    return cookies.remove(name, { path: "/" })
+}
