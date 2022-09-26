@@ -135,7 +135,7 @@ class HomePage extends Component {
                                 title="수능"
                             />
                             <CardLink 
-                                to="./PublicOfficial" 
+                                to="./Public" 
                                 type = "Public Official"
                                 title="공무원"
                             />
@@ -146,7 +146,7 @@ class HomePage extends Component {
                             />
                             <CardLink 
                                 to="./Etc" 
-                                type = "etc"
+                                type = "Etc"
                                 title="기타"
                             />
                         </ClassList>

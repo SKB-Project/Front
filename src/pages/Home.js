@@ -13,7 +13,7 @@ class Home extends Component {
                 <Route path="/home/homepage" component={HomePage}/>
                 <Route path="/home/Programming" component={Programming}/>
                 <Route path="/home/ColleageTest" component={Colleage}/>
-                <Route path="/home/PublicOfficial" component={Public}/>
+                <Route path="/home/Public" component={Public}/>
                 <Route path="/home/Jop" component={Jop}/>
                 <Route path="/home/Etc" component={Etc}/>
             </HomeWrapper>
