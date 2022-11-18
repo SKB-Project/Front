@@ -4,3 +4,5 @@ export { default as Jop } from './Jop';
 export { default as Programming } from './Programming';
 export { default as Public } from './Public';
 export { default as HomePage } from './HomePage';
+export { default as Planner } from './Planner';
+export { default as Study } from './Study';

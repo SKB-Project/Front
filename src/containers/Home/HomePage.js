@@ -125,27 +125,27 @@ class HomePage extends Component {
                         </RoadmapTitleContainer>
                         <ClassList>
                             <CardLink 
-                                to="./Programming" 
+                                to="./community/Programming" 
                                 type = "Programming"
                                 title="프로그래밍"
                             />
                             <CardLink 
-                                to="./ColleageTest" 
+                                to="./community/ColleageTest" 
                                 type = "Colleage Ability Test"
                                 title="수능"
                             />
                             <CardLink 
-                                to="./Public" 
+                                to="./community/Public" 
                                 type = "Public Official"
                                 title="공무원"
                             />
                             <CardLink 
-                                to="./Jop" 
+                                to="./community/Jop" 
                                 type = "Jop"
                                 title="취업 준비"
                             />
                             <CardLink 
-                                to="./Etc" 
+                                to="./community/Etc" 
                                 type = "Etc"
                                 title="기타"
                             />
@@ -157,12 +157,12 @@ class HomePage extends Component {
                         </RoadmapTitleContainer>
                         <ClassList>
                             <CardLink 
-                                to="./Programming" 
+                                to="./Study" 
                                 type = "Study"
                                 title="스터디 모집"
                             />
                             <CardLink 
-                                to="./ColleageTest" 
+                                to="./Planner" 
                                 type = "Planner"
                                 title="플래너 작성"
                             />

@@ -41,17 +41,17 @@ class Community extends Component{
                     <div id='Mains-left'>
                     </div>
                     <div>
-                        <Route path={'/home/' + Etype} 
+                        <Route path={'/home/community/' + Etype} 
                         render = {() => <List type = {type} Etype = {Etype}/> } exact/>
                         <Switch>
-                            <Route path={'/home/' + Etype+'/write/modify/:data'} 
+                            <Route path={'/home/community/' + Etype+'/write/modify/:data'} 
                             component={this._withProps(Write, { 
                                 _getContents : _getContents, 
                                 _getTitles : _getTitles,
                                 title : title,
                                 content : content
                                 })}/>
-                            <Route path={'/home/' + Etype+'/write'} 
+                            <Route path={'/home/community/' + Etype+'/write'} 
                             component={this._withProps(Write, { 
                                 _getContents : _getContents, 
                                 _getTitles : _getTitles,
@@ -59,7 +59,7 @@ class Community extends Component{
                                 content : content
                                 })}/>
                         </Switch>
-                        <Route path={'/home/' + Etype +'/view/:data'} 
+                        <Route path={'/home/community/' + Etype +'/view/:data'} 
                         component={this._withProps(EachListView, { 
                             Etype : Etype,
                             type : type,
@@ -67,14 +67,14 @@ class Community extends Component{
                     </div>
                     <div id='Mains-right'>
                         <Switch>
-                            <Route path={'/home/' + Etype+'/write/modify/:data'} 
+                            <Route path={'/home/community/' + Etype+'/write/modify/:data'} 
                             component={this._withProps(RightWrite, { 
                                 content :content,
                                 Etype : Etype,
                                 type : type,
                                  })}
                             />
-                            <Route path={'/home/' + Etype+'/write'} 
+                            <Route path={'/home/community/' + Etype+'/write'} 
                             render = {() => <RightWrite Etype = {Etype} type = {type} content = {content}/>}
                             />
                         </Switch>

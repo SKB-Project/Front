@@ -40,6 +40,7 @@ class Login extends Component {
             { withCredentials: true},
             );
 
+            console.log(process.env.REACT_APP_DB_HOST + '/user/signIn');
             console.log(response.data.data);
             if(response.data.result === "SUCCESS"){
                 storage.set('tokens', response.data.data);

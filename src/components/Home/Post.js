@@ -10,7 +10,7 @@ const Posts = ({ Etype, posts, loading ,search}) => {
         {posts && posts.length > 0 ? posts.map((post) => (
           <div className="list_grid list_data" key={post.title}>
             <div>
-                <Link to = {`/home/${Etype}/view/${post.postId}`}>{post.title}</Link>
+                <Link to = {`/home/community/${Etype}/view/${post.postId}`}>{post.title}</Link>
             </div>
             <div>
               {post.viewCount}

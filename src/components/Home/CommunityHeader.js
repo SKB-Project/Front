@@ -14,10 +14,10 @@ class CommunityHeader extends Component {
       <Container>
         <div className='header_grid'>
             <div className='acenter'>
-                <h5> <Link to={'/home/' + this.props.Etype + '/write'}> 포스트 작성 </Link> </h5>
+                <h5> <Link to={'/home/community/' + this.props.Etype + '/write'}> 포스트 작성 </Link> </h5>
             </div>
             <div className='acenter'>
-                <Link className='link_tit' to={'/home/' + this.props.Etype}> <h3> 자유게시판 </h3> </Link>
+                <Link className='link_tit' to={'/home/community/' + this.props.Etype}> <h3> 자유게시판 </h3> </Link>
             </div>
         </div>
         </Container>

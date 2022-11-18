@@ -31,7 +31,8 @@ class RightWrite extends Component {
         withCredentials: true,
       })
       // console.log(res.data);
-      return alert('게시글 작성 완료');
+      alert('게시글 작성 완료');
+      return window.location.replace(`/home/community/${this.props.Etype}`);
     }
     catch(e){
       console.log(e);
@@ -66,7 +67,8 @@ class RightWrite extends Component {
         withCredentials: true,
       })
       console.log(res.data);
-      return alert('게시글 수정 완료');
+      alert('게시글 수정 완료');
+      return window.location.replace(`/home/community/${this.props.Etype}`);
     }
     catch(e){
       console.log(e);
@@ -94,11 +96,11 @@ class RightWrite extends Component {
             {
                !data ? 
                <button onClick={submitBoard}>
-                  <Link to={'/home/' + this.props.Etype}>게시글 작성</Link>
+                  <Link to={'/home/community/' + this.props.Etype}>게시글 작성</Link>
                 </button> 
                 :
                 <button onClick={editBoard}>
-                  <Link to={'/home/' + this.props.Etype + '/view/' + state.board_id}>게시글 수정</Link>
+                  <Link to={'/home/community/' + this.props.Etype + '/view/' + state.board_id}>게시글 수정</Link>
                 </button> 
             }
           </div>

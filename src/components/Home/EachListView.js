@@ -196,7 +196,7 @@ class EachListView extends Component {
         console.log(response.data);
         alert('댓글이 등록되었습니다.');
         const board_id = parseInt(this.props.match.params.data,10);
-        window.location.replace(`/home/${this.props.Etype}/view/${board_id}`);
+        window.location.replace(`/home/community/${this.props.Etype}/view/${board_id}`);
     } catch (e) {
         console.log(e);
     }
@@ -237,7 +237,7 @@ class EachListView extends Component {
         });
         console.log(response.data.data);
         const board_id = parseInt(this.props.match.params.data,10);
-        window.location.replace(`/home/${this.props.Etype}/view/${board_id}`);
+        window.location.replace(`/home/community/${this.props.Etype}/view/${board_id}`);
 
     } catch (e) {
         console.log(e);
@@ -265,7 +265,7 @@ render(){
             { logInUserId == data.createdPostUserId ?
                   <div className='write_option_div'>
                     <Link to={{
-                      pathname: `/home/${this.props.Etype}/write/modify/${board_id}`,
+                      pathname: `/home/community/${this.props.Etype}/write/modify/${board_id}`,
                       state: {
                         board_id: board_id
                       }}}> 
@@ -290,13 +290,13 @@ render(){
 
                 <div className='other_div'>
                   <div className='view_pre_next_div view_pre'> 
-                  {prevId != 0 ? <Link to={'/home/' + this.props.Etype + '/view/' + prevId} >{prevtitle}</Link>
+                  {prevId != 0 ? <Link to={'/home/community/' + this.props.Etype + '/view/' + prevId} >{prevtitle}</Link>
                   : <p>{prevtitle}</p>
                   }
                       <img src={pre}/>
                   </div>
                   <div className='view_pre_next_div view_next'>
-                    {nextId != 0 ? <Link to={'/home/' + this.props.Etype + '/view/' + nextId} >{nexttitle}</Link>
+                    {nextId != 0 ? <Link to={'/home/community/' + this.props.Etype + '/view/' + nextId} >{nexttitle}</Link>
                   : <p>{nexttitle}</p>
                   }
                       <img src={next}/>

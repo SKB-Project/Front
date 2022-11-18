@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Colleage, Etc, Jop, Programming, Public,HomePage } from '../containers/Home';
+import { Colleage, Etc, Jop, Programming, Public,HomePage, Planner, Study } from '../containers/Home';
 import { HomeWrapper } from '../components/Home';
 import { Link } from 'react-router-dom';
 
@@ -11,11 +11,13 @@ class Home extends Component {
             <div>
             <HomeWrapper>
                 <Route path="/home/homepage" component={HomePage}/>
-                <Route path="/home/Programming" component={Programming}/>
-                <Route path="/home/ColleageTest" component={Colleage}/>
-                <Route path="/home/Public" component={Public}/>
-                <Route path="/home/Jop" component={Jop}/>
-                <Route path="/home/Etc" component={Etc}/>
+                <Route path="/home/community/Programming" component={Programming}/>
+                <Route path="/home/community/ColleageTest" component={Colleage}/>
+                <Route path="/home/community/Public" component={Public}/>
+                <Route path="/home/community/Jop" component={Jop}/>
+                <Route path="/home/community/Etc" component={Etc}/>
+                <Route path="/home/Planner" component={Planner}/>
+                <Route path="/home/Study" component={Study}/>
             </HomeWrapper>
             <Link to = "/home/homepage">Go to HomePage</Link>
             </div>
