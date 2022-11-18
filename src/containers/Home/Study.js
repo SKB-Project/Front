@@ -5,7 +5,7 @@ class Study extends Component {
     render() {
         return (
             <div>
-                12313213213
+                스터디 브랜치 생성 확인 
             </div>
         );
     }
