@@ -5,7 +5,7 @@ class Planner extends Component {
     render() {
         return (
             <div>
-                12313213213
+                플래너 브랜치 생성
             </div>
         );
     }
